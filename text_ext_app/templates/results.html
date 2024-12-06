@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extracted Experiments</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        line-height: 1.6;
+      }
+
+      .experiment {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+
+      .experiment-title {
+        font-weight: bold;
+        color: #2c3e50;
+      }
+
+      .download-link {
+        display: block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: white;
+        background: #4caf50;
+        padding: 10px 15px;
+        text-align: center;
+        border-radius: 5px;
+        width: 200px;
+      }
+
+      .download-link:hover {
+        background: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Extracted Experiments</h1>
+    {% for experiment in experiments %}
+    <div class="experiment">
+      <div class="experiment-title">
+        Experiment {{ experiment.index }} Title:
+      </div>
+      <div>{{ experiment.title }}</div>
+      <div class="experiment-title">Procedure:</div>
+      <div>{{ experiment.procedure }}</div>
+    </div>
+    {% endfor %}
+
+    <a href="{{ url_for('download_file') }}" class="download-link"
+      >Download Excel</a
+    >
+  </body>
+</html>
